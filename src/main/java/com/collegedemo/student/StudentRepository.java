@@ -13,7 +13,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 	
 	Optional<Student> findStudentByEmail(String email);
 	
-	 @Modifying
+	@Modifying
 	 @Query("UPDATE student SET name = :name WHERE id = :id")
 	 boolean updateByName(@Param("id") Long id, @Param("name") String name);
 	 
