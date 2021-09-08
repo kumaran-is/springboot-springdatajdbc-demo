@@ -51,11 +51,11 @@ public class StudentService {
 				.orElseThrow(() -> new IllegalStateException("Student with id " + id + " does not exists"));
 		
 		if(name != null && name.length() > 0 && !Objects.equals(student.getName(),  name)) {
-			student.setName(name);
+			studentRepository.updateByName(id, name);
 		}
 		
 		if(email != null && email.length() > 0 && !Objects.equals(student.getEmail(),  email)) {
-			student.setEmail(email);
+			studentRepository.updateByEmail(id, email);;
 		}
 	}
 
